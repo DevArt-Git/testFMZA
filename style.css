@@ -1,0 +1,385 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+
+body {
+    font-family: sans-serif;
+
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    background: url('images/background_image.jpg');
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.game-quiz-container {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 80%;
+    height: 50%;
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px;
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.53);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.53);
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.53);
+}
+
+.game-quiz-container2 {
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    padding: 20px;
+    width: 80%;
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    border-radius: 30px;
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.53);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.53);
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.53);
+}
+
+.question_item {
+    padding: 5px;
+}
+
+.question_item:not(:last-child) {
+    border-bottom: 2px solid #ccc;
+}
+
+.game-details-container {
+    width: 80%;
+    height: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.game-details-container h1 {
+    font-size: 1.5rem;
+}
+
+.game-question-container {
+    margin-bottom: 1.5rem;
+    width: 80%;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid darkgray;
+    border-radius: 25px;
+}
+
+.game-question-container h1 {
+    font-size: 1.5rem;
+    padding: 15px;
+    text-align: center;
+}
+
+.game-options-container {
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.game-options-container span {
+    font-size: 1.3rem;
+    padding: 5px;
+    width: 45%;
+    height: 7rem;
+    border: 2px solid darkgray;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+span label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    font-weight: 600;
+    color: rgb(22, 22, 22);
+}
+
+span label:hover {
+
+    transition: 0.5s;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 5px 100px 12px rgba(34, 60, 80, 0.09);
+    -moz-box-shadow: 0px 5px 100px 12px rgba(34, 60, 80, 0.09);
+    box-shadow: 0px 5px 100px 12px rgba(34, 60, 80, 0.09);
+
+}
+
+input[type="radio"] {
+    position: relative;
+    display: none;
+}
+
+
+input[type=radio]:checked~.option {
+    background-color: #74916e67;
+    border-radius: 10px;
+
+}
+
+.next-button-container {
+    width: 90%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.next-button-container button {
+    width: 8rem;
+    height: 2rem;
+    border-radius: 10px;
+    background: none;
+    color: rgb(25, 25, 25);
+    font-weight: 600;
+    border: 2px solid gray;
+    cursor: pointer;
+    outline: none;
+}
+
+.next-button-container button:hover {
+    background-color: rgb(143, 93, 93);
+}
+
+.modal-container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -webkit-animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content-container {
+    padding: 30px 0;
+    height: 15rem;
+    width: 35rem;
+    background-color: rgb(43, 42, 42);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.modal-content-container h1 {
+    font-size: 1.3rem;
+    height: 3rem;
+    color: lightgray;
+    text-align: center;
+}
+
+.grade-details {
+    width: 15rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-around;
+}
+
+.grade-details p {
+    color: white;
+    text-align: center;
+}
+
+.modal-button-container {
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-button-container button {
+    width: 10rem;
+    height: 2rem;
+    background: none;
+    outline: none;
+    border: 1px solid rgb(252, 242, 241);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.modal-button-container button:hover {
+    background-color: rgb(83, 82, 82);
+}
+
+/* My CSS */
+#colorRemarks {
+    padding: 10px 0px;
+}
+
+.colorRedForWrongAnswer {
+    color: red
+}
+
+.infoQuantityContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reloadButtonContainer {
+    margin: 0 auto;
+    width: 90%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.reloadButtonContainer button {
+    width: 8rem;
+    height: 2rem;
+    border-radius: 10px;
+    background: none;
+    color: rgb(25, 25, 25);
+    font-weight: 600;
+    border: 2px solid gray;
+    cursor: pointer;
+    outline: none;
+}
+
+.reloadButtonContainer button:hover {
+    background-color: rgb(143, 93, 93);
+}
+
+@media(min-width : 300px) and (max-width : 350px) {
+    .game-quiz-container {
+        width: 90%;
+        height: 80vh;
+    }
+
+    .game-details-container h1 {
+        font-size: 0.8rem;
+    }
+
+    .game-question-container {
+        height: 6rem;
+    }
+
+    .game-question-container h1 {
+        font-size: 0.9rem;
+    }
+
+    .game-options-container span {
+        width: 90%;
+        height: 2.5rem;
+    }
+
+    .game-options-container span label {
+        font-size: 0.8rem;
+    }
+
+    .modal-content-container {
+        width: 90%;
+        height: 25rem;
+    }
+
+    .modal-content-container h1 {
+        font-size: 1.2rem;
+    }
+}
+
+@media(min-width : 350px) and (max-width : 700px) {
+    .game-quiz-container {
+        width: 90%;
+        height: 80vh;
+    }
+
+    .game-details-container h1 {
+        font-size: 1rem;
+    }
+
+    .game-question-container {
+        height: 8rem;
+    }
+
+    .game-question-container h1 {
+        font-size: 0.9rem;
+    }
+
+    .game-options-container span {
+        width: 90%;
+    }
+
+    .modal-content-container {
+        width: 90%;
+        height: 25rem;
+    }
+
+    .modal-content-container h1 {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
